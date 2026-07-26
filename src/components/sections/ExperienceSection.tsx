@@ -12,7 +12,7 @@ const ExperienceSection = () => {
 
   return (
     <div className="mt-6 border-l border-border ml-2 pb-4">
-      <div className="w-full flex justify-end">
+      <div className="w-full flex justify-end pb-4">
         <a
           href="/cv-gregorio-eyi.pdf"
           download

@@ -1,5 +1,6 @@
 // src/hooks/useSectionNavigation.ts
-import { useState, useEffect, useCallback } from "react";
+import { useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export type SectionId =
   | "about"
@@ -9,31 +10,15 @@ export type SectionId =
   | "contact";
 
 const useSectionNavigation = () => {
-  const [activeSection, setActiveSection] = useState<SectionId | null>(null);
+  const navigate = useNavigate();
+  const { sectionId } = useParams<{ sectionId: SectionId }>();
+  const activeSection = (sectionId as SectionId) ?? null;
 
-  const openSection = useCallback((id: SectionId) => {
-    setActiveSection(id);
-  }, []);
-
-  const closeSection = useCallback(() => {
-    setActiveSection(null);
-  }, []);
-
-  useEffect(() => {
-    if (activeSection === null) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeSection();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [activeSection, closeSection]);
+  const openSection = useCallback(
+    (id: SectionId) => navigate(`/${id}`),
+    [navigate],
+  );
+  const closeSection = useCallback(() => navigate("/"), [navigate]);
 
   return { activeSection, openSection, closeSection };
 };

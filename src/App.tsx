@@ -1,3 +1,8 @@
+// src/App.tsx
+
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import AppIcon from "./components/common/AppIcon";
 import useSectionNavigation from "./hooks/useSectionNavigation";
 import SectionOverlay from "./components/layout/SectionOverlay";
@@ -70,14 +75,31 @@ const SECTIONS: Section[] = [
 const DOCK_IDS: SectionId[] = ["projects", "contact"];
 const dockItems = SECTIONS.filter((section) => DOCK_IDS.includes(section.id));
 
-function App() {
-  const { activeSection, openSection, closeSection } = useSectionNavigation();
+function SectionRoute() {
+  const { activeSection, closeSection } = useSectionNavigation();
 
   const currentSection = SECTIONS.find(
     (section) => section.id === activeSection,
   );
 
+  if (!currentSection) return <Navigate to="/" replace />;
   const CurrentComponent = currentSection?.component;
+
+  return (
+    <SectionOverlay
+      isOpen={true}
+      title={currentSection.label}
+      onClose={closeSection}
+    >
+      <CurrentComponent />
+    </SectionOverlay>
+  );
+}
+
+function App() {
+  const { openSection } = useSectionNavigation();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   return (
     <main className="min-h-screen px-4 pt-8">
@@ -93,21 +115,16 @@ function App() {
         ))}
       </div>
 
-      <SectionOverlay
-        isOpen={activeSection !== null}
-        title={currentSection?.label ?? ""}
-        onClose={closeSection}
-      >
-        {CurrentComponent && <CurrentComponent />}
-      </SectionOverlay>
+      <Routes>
+        <Route path="/" element={null} />
+        <Route path="/:sectionId" element={<SectionRoute />} />
+      </Routes>
 
       <LastProjectWidget />
 
       <AvailabilityWidget />
 
-      {activeSection === null && (
-        <Dock items={dockItems} onSelect={openSection} />
-      )}
+      {isHome && <Dock items={dockItems} onSelect={openSection} />}
     </main>
   );
 }

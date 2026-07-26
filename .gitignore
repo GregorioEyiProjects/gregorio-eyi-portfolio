@@ -18,6 +18,10 @@ dist-ssr
 #Notes
 notes.md
 
+# ingore theses files
+src/App copy.tsx
+src/hooks/useSectionNavigation copy.ts
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
