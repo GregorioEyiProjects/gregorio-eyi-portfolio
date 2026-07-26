@@ -2,11 +2,6 @@
 
 import { useEffect, useRef } from "react";
 
-const ESTILOS = {
-  container:
-    "fixed inset-0 bg-bg flex justify-center overflow-y-auto transition-all duration-200",
-};
-
 type SectionOverlayProps = {
   isOpen: boolean;
   title: string;
