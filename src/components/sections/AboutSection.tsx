@@ -1,14 +1,10 @@
+import ProfilePhoto from "./ProfilePhoto";
+
 // src/components/sections/AboutSection.tsx
 const AboutSection = () => {
   return (
     <div className="mt-6 pb-4 space-y-4 text-text-secondary leading-relaxed text-sm md:text-md">
-      <div className="w-full flex justify-center">
-        <img
-          src="/profile.jpg"
-          alt="Gregorio Eyi"
-          className="w-40 h-40 rounded-full object-cover"
-        />
-      </div>
+      <ProfilePhoto />
       <div>
         <p className="text-text-primary font-semibold ">
           Soy Gregorio Eyi, desarrollador full-stack.
