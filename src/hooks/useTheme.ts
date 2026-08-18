@@ -14,7 +14,7 @@ const useTheme = () => {
     return themeFound;
   };
 
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
   useEffect(() => {
     try {

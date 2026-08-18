@@ -24,6 +24,7 @@ import {
 
 const ICON_MAP: Record<string, SimpleIcon | undefined> = {
   React: siReact,
+  "React Native": siReact,
   Vite: siVite,
   "Tailwind CSS": siTailwindcss,
   "Node.js": siNodedotjs,

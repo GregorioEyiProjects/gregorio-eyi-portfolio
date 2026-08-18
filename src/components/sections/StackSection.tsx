@@ -9,14 +9,14 @@ const STACK = [
   },
   {
     categoria: "Backend",
-    techs: ["Node.js", "Express", "Java", "Spring Boot"],
+    techs: ["Node.js", "Express"],
   },
   {
     categoria: "Bases de datos",
-    techs: ["PostgreSQL", "MongoDB", "MySQL", "Supabase"],
+    techs: ["Supabase", "MongoDB"],
   },
-  { categoria: "Móvil", techs: ["Flutter", "Dart"] },
-  { categoria: "Herramientas", techs: ["Docker", "AWS", "Firebase", "Git"] },
+  { categoria: "Móvil", techs: ["React Native", "Flutter", "Dart"] },
+  { categoria: "Herramientas", techs: ["Git", "Vercel", "Docker"] },
 ];
 
 const StackSection = () => {
