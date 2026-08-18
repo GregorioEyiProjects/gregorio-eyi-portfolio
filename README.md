@@ -2,7 +2,7 @@
 
 Portfolio personal con un concepto propio: la interfaz imita la pantalla de inicio de un smartphone. Cada "app" es una sección de navegación (Sobre mí, Proyectos, Experiencia, Stack, Contacto) que se abre con una transición, manteniendo la metáfora sin sacrificar usabilidad ni accesibilidad.
 
-**En producción:** [https://www.gregorioeyi.dev]
+**En producción:** https://www.gregorioeyi.dev
 
 ---
 
