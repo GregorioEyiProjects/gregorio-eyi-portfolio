@@ -14,7 +14,7 @@ const ExperienceSection = () => {
     <div className="mt-6 border-l border-border ml-2 pb-4">
       <div className="w-full flex justify-end pb-4">
         <a
-          href="/cv-gregorio-eyi.pdf"
+          href="/CV_Gregorio_Eyi_FullStack.pdf"
           download
           className="inline-flex items-center gap-2 bg-surface border border-border rounded-card px-4 py-2 text-sm hover:border-accent hover:text-accent transition-colors focus-visible:outline-2 focus-visible:outline-accent"
         >
